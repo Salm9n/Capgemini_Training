@@ -1,0 +1,113 @@
+10
+-----------------
+select client_name,city from client;
+
+select * from product;
+
+insert into client(client_number,client_name,client_address,city,zipcode,state,total_balance) values (1,'Labron James', '6400_Shafer_Ct', 'Rosemont', 61016,'IL',10000);
+
+select * from client where client_name like '_a%';
+
+insert into client(client_number,client_name,client_address,city,zipcode,state,total_balance) values (2,'Kobe Bryant', '6400_Shafer_Ct', 'Pune', 61016,'IL',10000);
+
+select * from client where city = 'Pune';
+
+insert into product values(1,'Basketball',2001,'Nike');
+
+insert into product values(2,'Game',5000,'Nintendo');
+
+insert into product values(3,'Pizza',20,'Pizza Hut');
+
+select * from product where selling_price > 2000 AND selling_price <=5000;
+
+alter table product add new_price int;
+
+alter table `salesman` change column `product_rate` `new_product_rate` int;
+
+select prod_name from product order by prod_name;
+
+insert into salesman values(1, 'Bob Lester', '3400 ForestDale Drive', 'Newburgh','78630','IN',10000,'1990-01-01',10,100);
+
+insert into orders values(1,'2019-07-07',1,1,0,'2019-07-08');
+
+insert into orders values(2,'2019-05-05',2,1,0,'2019-07-08');
+
+select sales_order_number,sales_order_date,client_number from orders;
+
+delete from orders where delivery_date < '2008-08-25';
+
+update orders set delivery_date = '2008-08-16' WHERE sales_order_number = 'ON01008';
+
+update client set total_balance = 1200 where client_number = 'CN01003;
+
+select * from product where prod_name = 'HDD1034' or prod_name='DVDRW';
+
+select client_name, city, state from client where state != 'Maharashtra';
+
+select * from orders where MONTH(sales_order_date) = 3 AND billed = 0;
+
+
+11
+---------------
+
+a.) select name,city,course from students inner 
+
+b.) select * from teacher where department = 1;
+
+c.) select * from course where department = 'CSE';
+
+d.) select * from students where semester = 'fall2019';
+
+e.) select * from students where GPA >= 8.5;
+
+f.) 
+
+g.) 
+
+h.) select sum(enrolled) from course where course_title = 'DBMS';
+
+i.)
+
+j.) select name from students orderby ASCENDING;
+
+k.) select student_name from student order by student_name ASC;
+
+l.)
+
+m.) select * from courses where department = 'CS';
+
+n.) select * from students where city = 'Pune';
+
+o.) select count(*) from department;
+
+
+8
+----------------
+
+1.) select aname from Aircraft where aid in (select cert.aid from certified cert, employees emp where cert.eid = emp.eid AND (select * from employees where salary > 80000);
+
+2.) select cert.eid,max(air.cruisingrange) from certified cert, aircraft air where cert.aid = air.aid group by cert.eid where count(*) > 3;
+
+3.) select ename from employees where salary < (select MIN(price) from flights where from = 'Los Angeles' AND to = 'Honolulu');
+
+4.) select aname from aircraft 
+
+5.) select ename from employees emp inner join emp.eid = cert.eid on certified cert and inner join cert.eid = air.eid on aircract air and air.name = 'Boeing';
+
+6.) select aid from aircraft where cruisingrange > (select MIN(distance) from flights where from = 'Los Angeles' and to = 'Chicago';
+
+7.)
+
+8.) 
+
+9.) 
+
+10.) select avg(salary) from employees where 
+
+11.) 
+
+12.) select emp.ename from employees emp certified cert and aircraft air where cert.aid = air.aid and emp.eid = cert.eid where (air.cruisingrange > 1000);
+
+13.) select emp.ename from employees emp certified cret and aircraft air where cert.aid = air.aid and emp eid = cert.eid where (air.cruisingrange > 1000 and count(*) > 1);
+
+14.) select emp.ename from employees emp certified cert and aircraft air where cert.aid = air.aid and emp.eid = cert.eid where (air.cruisingrange > 1000 and air.aname = 'Boeing');
